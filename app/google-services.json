@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "910403118578",
+    "project_id": "cloudbrary-85681",
+    "storage_bucket": "cloudbrary-85681.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:910403118578:android:38b42915cd3ca2863b376b",
+        "android_client_info": {
+          "package_name": "com.keshava.cloudbrary"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "910403118578-ukdjg9inrbk4sgmvp5mk9ir050p1m774.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLli0PnylXscdjN4TzfOstyIvWsX5CzgQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "910403118578-ukdjg9inrbk4sgmvp5mk9ir050p1m774.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
