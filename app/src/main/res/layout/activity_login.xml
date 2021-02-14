@@ -1,9 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".login">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="400dp"
+        android:layout_marginLeft="14dp"
+        android:layout_marginRight="14dp"
+        android:layout_marginTop="190dp"
+        android:background="@drawable/box"
+        android:orientation="vertical"
+        android:gravity="end"
+        android:padding="40dp">
+
+        <TextView
+            android:id="@+id/wlcometxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:fontFamily="@font/quicksand_bold"
+            android:text="Welcome Back!"
+            android:textColor="#0F0F0F"
+            android:textSize="30dp" />
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:scrollbarStyle="outsideInset"
+            android:scrollbars="none"
+            android:layout_marginTop="10dp"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                >
+                <EditText
+                    android:layout_width="250dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/textfield"
+                    android:textColor="#000000"
+                    android:id="@+id/emailtxt"
+                    android:layout_marginTop="25dp"
+                    android:hint="E-mail"
+                    android:paddingLeft="18dp" />
+
+                <EditText
+                    android:id="@+id/paswrdtxt"
+                    android:layout_width="250dp"
+                    android:layout_height="40dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/textfield"
+                    android:layout_marginTop="25dp"
+                    android:hint="Password"
+                    android:inputType="textPassword"
+                    android:paddingLeft="18dp" />
+
+
+
+            </LinearLayout>
+        </ScrollView>
+
+        <Button
+            android:id="@+id/login"
+            android:layout_width="200dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:layout_gravity="center"
+            android:background="@drawable/loginfield"
+            />
+
+
+        <LinearLayout
+            android:id="@+id/registerlinier"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="28dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/quicksand_book"
+                android:text="you don't have account already?"
+                android:textColor="#363636"
+                android:textSize="13dp" />
+
+            <TextView
+                android:id="@+id/signup"
+                android:layout_width="70dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:fontFamily="@font/quicksand_book"
+                android:text="Sign Up"
+                android:textColor="#FF6B00"
+                android:textSize="13dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
