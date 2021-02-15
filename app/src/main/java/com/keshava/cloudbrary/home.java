@@ -11,12 +11,13 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class home extends AppCompatActivity {
 
-    private TextView logout;
+    private TextView logout,search;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         logout = findViewById(R.id.logoutn);
+        search = findViewById(R.id.srch);
 
 
         logout.setOnClickListener(new View.OnClickListener() {
@@ -25,6 +26,15 @@ public class home extends AppCompatActivity {
                 FirebaseAuth.getInstance().signOut();
                 Intent logout = new Intent(home.this, login.class);
                 startActivity(logout);
+            }
+        });
+
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent searchAct = new Intent(home.this, searchAct.class);
+                startActivity(searchAct);
             }
         });
     }

@@ -69,8 +69,58 @@ public class login extends AppCompatActivity {
                 FirebaseUser mFirebaseUser = mFirebaseAuth.getCurrentUser();
                 if( mFirebaseUser != null ){
 //
-                    Intent intent = new Intent(login.this,home.class);
-                    startActivity(intent);
+
+                    String uid = mFirebaseAuth.getCurrentUser().getUid();
+
+                    DocumentReference docRef = db.collection("users").document(uid);
+
+                    docRef.get().addOnSuccessListener(new OnSuccessListener<DocumentSnapshot>() {
+                        @Override
+                        public void onSuccess(DocumentSnapshot documentSnapshot) {
+
+                            if(documentSnapshot.exists()){
+
+                                int utype = documentSnapshot.getLong("utype").intValue();
+
+
+
+                                if(utype==1){
+                                    Toast.makeText(login.this,"adminr",Toast.LENGTH_SHORT).show();
+                                    Intent gomain = new Intent(login.this,adminpage.class);
+                                    startActivity(gomain);
+
+
+                                }else if(utype==2){
+                                    Toast.makeText(login.this,"user",Toast.LENGTH_SHORT).show();
+                                    Intent gomain = new Intent(login.this,home.class);
+                                    startActivity(gomain);
+
+
+                                }
+
+                                else{
+
+                                    logpass.setText(null);
+                                    logemail.setText(null);
+                                    Toast.makeText(login.this,"sorry your not a user",Toast.LENGTH_SHORT).show();
+                                }
+
+                            }else {
+                                Toast.makeText(login.this,"Document does not exist",Toast.LENGTH_SHORT).show();
+                            }
+
+
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(login.this,"Error ",Toast.LENGTH_SHORT).show();
+
+                        }
+                    });
+
+
+
 
                 }
                 else{
