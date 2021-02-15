@@ -116,15 +116,24 @@ public class login extends AppCompatActivity {
                                         if(documentSnapshot.exists()){
 
                                             int utype = documentSnapshot.getLong("utype").intValue();
-                                            int utype2 = 2;
 
-                                            if(utype==utype2){
 
+
+                                            if(utype==1){
+                                                Toast.makeText(login.this,"adminr",Toast.LENGTH_SHORT).show();
+                                                Intent gomain = new Intent(login.this,adminpage.class);
+                                                startActivity(gomain);
+
+
+                                            }else if(utype==2){
+                                                Toast.makeText(login.this,"user",Toast.LENGTH_SHORT).show();
                                                 Intent gomain = new Intent(login.this,home.class);
                                                 startActivity(gomain);
 
 
-                                            }else{
+                                            }
+
+                                            else{
 
                                                 logpass.setText(null);
                                                 logemail.setText(null);

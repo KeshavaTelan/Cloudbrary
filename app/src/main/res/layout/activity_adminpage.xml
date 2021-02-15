@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".adminpage">
+
+    <ImageView
+        android:id="@+id/bimg"
+        android:layout_width="300dp"
+        android:layout_height="150dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"
+        android:scaleType="fitXY"
+        android:background="@drawable/personadd"
+
+
+        />
+
+    <ScrollView
+        android:layout_centerHorizontal="true"
+        android:id="@+id/allScroll"
+        android:background="@drawable/box"
+        android:layout_width="wrap_content"
+        android:layout_height="300dp"
+        android:layout_below="@+id/bimg"
+        android:layout_marginTop="20dp">
+
+        <RelativeLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="20dp"
+            >
+
+            <EditText
+                android:id="@+id/bookname"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/textfield"
+                android:fontFamily="@font/quicksand_bold"
+                android:hint="book Name "
+                android:paddingLeft="25dp" />
+
+            <EditText
+                android:id="@+id/booktype"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/bookname"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/textfield"
+                android:fontFamily="@font/quicksand_bold"
+                android:hint="book type"
+                android:paddingLeft="25dp" />
+
+            <EditText
+                android:id="@+id/bookprice"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/booktype"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/textfield"
+                android:fontFamily="@font/quicksand_bold"
+                android:hint="book price"
+                android:paddingLeft="25dp" />
+            <EditText
+                android:id="@+id/bookcount"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:layout_below="@+id/bookprice"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/textfield"
+                android:fontFamily="@font/quicksand_bold"
+                android:hint="book count"
+                android:paddingLeft="25dp" />
+            <EditText
+                android:id="@+id/bookdis"
+                android:layout_width="300dp"
+                android:layout_height="150dp"
+                android:layout_below="@+id/bookcount"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/textfield"
+                android:fontFamily="@font/quicksand_bold"
+                android:hint="description "
+                android:paddingLeft="25dp" />
+
+
+        </RelativeLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/addBook"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/allScroll"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/add" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LOG OUT"
+        android:layout_below="@+id/addBook"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:textSize="25dp"
+        android:id="@+id/logout"
+        />
+
+
+
+</RelativeLayout>
