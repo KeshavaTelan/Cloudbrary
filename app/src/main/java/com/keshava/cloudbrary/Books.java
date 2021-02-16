@@ -7,15 +7,14 @@ public class Books {
     private String  bookname;
     private String  booktype;
     private String  bookprice;
-    private String  bookcount;
+    private int  bookcount;
     private String  bookdiscription;
-    private int  reader;
     private int  status;
 
     public Books() {
     }
 
-    public Books(String bookid, String bookimg, String bookname, String booktype, String bookprice, String bookcount, String bookdiscription, int reader, int status) {
+    public Books(String bookid, String bookimg, String bookname, String booktype, String bookprice, int bookcount, String bookdiscription, int status) {
         this.bookid = bookid;
         this.bookimg = bookimg;
         this.bookname = bookname;
@@ -23,7 +22,6 @@ public class Books {
         this.bookprice = bookprice;
         this.bookcount = bookcount;
         this.bookdiscription = bookdiscription;
-        this.reader = reader;
         this.status = status;
     }
 
@@ -47,16 +45,12 @@ public class Books {
         return bookprice;
     }
 
-    public String getBookcount() {
+    public int getBookcount() {
         return bookcount;
     }
 
     public String getBookdiscription() {
         return bookdiscription;
-    }
-
-    public int getReader() {
-        return reader;
     }
 
     public int getStatus() {

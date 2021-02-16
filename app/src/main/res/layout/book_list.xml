@@ -13,58 +13,91 @@
         android:layout_height="match_parent"
         android:padding="12dp">
 
-        <TextView
-            android:id="@+id/item_user_id_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="book name"
-            android:textStyle="bold"
+        <ImageView
+            android:id="@+id/book_img"
+            android:layout_width="100dp"
+            android:layout_height="130dp"
+            android:scaleType="fitXY"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
 
-        <TextView
-            android:id="@+id/book_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            app:layout_constraintStart_toEndOf="@id/item_user_id_label"
-            app:layout_constraintTop_toTopOf="@id/item_user_id_label" />
-
-        <TextView
-            android:id="@+id/item_first_name_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="price"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/item_user_id_label" />
-
-        <TextView
-            android:id="@+id/book_price"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            app:layout_constraintStart_toEndOf="@id/item_first_name_label"
-            app:layout_constraintTop_toTopOf="@id/item_first_name_label"
             />
 
-        <TextView
-            android:id="@+id/item_last_name_label"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/testcon"
+            android:layout_marginStart="20dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="avalibility"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/item_first_name_label" />
+            app:layout_constraintStart_toEndOf="@id/book_img"
+            app:layout_constraintTop_toTopOf="parent" >
 
-        <TextView
-            android:id="@+id/book_avalibility"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            app:layout_constraintStart_toEndOf="@id/item_last_name_label"
-            app:layout_constraintTop_toTopOf="@id/item_last_name_label"
-            />
+            <TextView
+                android:id="@+id/item_user_id_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="book name"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/book_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                app:layout_constraintStart_toEndOf="@id/item_user_id_label"
+                app:layout_constraintTop_toTopOf="@id/item_user_id_label" />
+
+            <TextView
+                android:id="@+id/item_first_name_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="price"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/item_user_id_label" />
+
+            <TextView
+                android:id="@+id/book_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                app:layout_constraintStart_toEndOf="@id/item_first_name_label"
+                app:layout_constraintTop_toTopOf="@id/item_first_name_label"
+                />
+
+            <TextView
+                android:id="@+id/item_last_name_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="avalibility"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/item_first_name_label" />
+
+            <TextView
+                android:id="@+id/book_avalibility"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                app:layout_constraintStart_toEndOf="@id/item_last_name_label"
+                app:layout_constraintTop_toTopOf="@id/item_last_name_label"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/bookybuy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="buy book"
+        app:layout_constraintStart_toStartOf="@+id/testcon"
+        app:layout_constraintTop_toBottomOf="@id/testcon"
+        android:layout_marginTop="10dp"
+        android:background="#FFC2C2"
+        />
+
+
+
 
 
 

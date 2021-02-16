@@ -36,7 +36,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class adminpage extends AppCompatActivity {
+public class
+adminpage extends AppCompatActivity {
 
     private FirebaseFirestore mDatabase;
     private EditText bookname, booktype, bookprice, bookcount, bookdis;
@@ -84,7 +85,7 @@ public class adminpage extends AppCompatActivity {
                 final String  bookname2  = bookname.getText().toString();
                 final String  booktype2  = booktype.getText().toString();
                 final String  bookprice2 = bookprice.getText().toString();
-                final String  bookcount2 = bookcount.getText().toString();
+                final int  bookcount2 = Integer.parseInt( bookcount.getText().toString());
                 final String  bookdis2   = bookdis.getText().toString();
 
 
@@ -126,9 +127,11 @@ public class adminpage extends AppCompatActivity {
                                     event.put("bookprice", bookprice2);
                                     event.put("bookcount", bookcount2);
                                     event.put("bookdiscription", bookdis2);
-                                    event.put("reader", 0);
                                     event.put("status", 1);
 
+                                    Map<String, Integer> tt = new HashMap<>();
+                                    tt.put("test",11);
+                                    event.put("mybooks",tt);
 
                                     newCityRef.set(event).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override

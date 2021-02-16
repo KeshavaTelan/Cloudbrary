@@ -10,6 +10,7 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -34,7 +35,7 @@ public class searchAct extends AppCompatActivity {
 
 
         RecyclerView recyclerView = findViewById(R.id.recycler_view);
-        recyclerView.setLayoutManager(new GridLayoutManager(this, 2));
+        recyclerView.setLayoutManager(new GridLayoutManager(this, 1));
 
         Query query = mDb.collection(BOOKS)
                 .orderBy("bookid", Query.Direction.ASCENDING);
@@ -43,6 +44,9 @@ public class searchAct extends AppCompatActivity {
                 .build();
 
         mAdapter = new BooksrecycleAdapter(options);
+
+
+
         recyclerView.setAdapter(mAdapter);
 
         EditText searchBox = findViewById(R.id.searchBox);
@@ -72,59 +76,50 @@ public class searchAct extends AppCompatActivity {
                 if (s.toString().isEmpty()) {
                     query = mDb.collection(BOOKS)
                             .orderBy("bookid", Query.Direction.ASCENDING);
-                } else {
+                } else if(bname.isChecked()){
+                    query = mDb.collection(BOOKS)
+                            .whereEqualTo("bookname", s.toString())
+                            .orderBy("bookid", Query.Direction.ASCENDING);
 
-                    if(bname.isChecked()){
-                        query = mDb.collection(BOOKS)
-                                .whereEqualTo("bookname", s.toString())
-                                .orderBy("bookid", Query.Direction.ASCENDING);
+                    FirestoreRecyclerOptions<Books> options = new FirestoreRecyclerOptions.Builder<Books>()
+                            .setQuery(query, Books.class)
+                            .build();
+                    mAdapter.updateOptions(options);
+                }  else if(bdis.isChecked()){
+                    query = mDb.collection(BOOKS)
+                            .whereEqualTo("bookdiscription", s.toString())
+                            .orderBy("bookid", Query.Direction.ASCENDING);
 
-                        FirestoreRecyclerOptions<Books> options = new FirestoreRecyclerOptions.Builder<Books>()
-                                .setQuery(query, Books.class)
-                                .build();
-                        mAdapter.updateOptions(options);
-                    }
-                    if(bdis.isChecked()){
-                        query = mDb.collection(BOOKS)
-                                .whereEqualTo("bookdiscription", s.toString())
-                                .orderBy("bookid", Query.Direction.ASCENDING);
+                    FirestoreRecyclerOptions<Books> options = new FirestoreRecyclerOptions.Builder<Books>()
+                            .setQuery(query, Books.class)
+                            .build();
+                    mAdapter.updateOptions(options);
+                } else if(btype.isChecked()){
+                    query = mDb.collection(BOOKS)
+                            .whereEqualTo("booktype", s.toString())
+                            .orderBy("bookid", Query.Direction.ASCENDING);
 
-                        FirestoreRecyclerOptions<Books> options = new FirestoreRecyclerOptions.Builder<Books>()
-                                .setQuery(query, Books.class)
-                                .build();
-                        mAdapter.updateOptions(options);
-                    }
-                    if(btype.isChecked()){
-                        query = mDb.collection(BOOKS)
-                                .whereEqualTo("booktype", s.toString())
-                                .orderBy("bookid", Query.Direction.ASCENDING);
+                    FirestoreRecyclerOptions<Books> options = new FirestoreRecyclerOptions.Builder<Books>()
+                            .setQuery(query, Books.class)
+                            .build();
+                    mAdapter.updateOptions(options);
+                }else {
 
-                        FirestoreRecyclerOptions<Books> options = new FirestoreRecyclerOptions.Builder<Books>()
-                                .setQuery(query, Books.class)
-                                .build();
-                        mAdapter.updateOptions(options);
-                    }
-                    if(!btype.isChecked() & !bdis.isChecked() & !bname.isChecked()){
-                        query = mDb.collection(BOOKS)
-                                .whereEqualTo("bookname", s.toString())
-                                .orderBy("bookid", Query.Direction.ASCENDING);
 
-                        FirestoreRecyclerOptions<Books> options = new FirestoreRecyclerOptions.Builder<Books>()
-                                .setQuery(query, Books.class)
-                                .build();
-                        mAdapter.updateOptions(options);
-                    }
-
-//                    query = mDb.collection(BOOKS)
-//                            .whereEqualTo("bookname", s.toString())
-//                            .orderBy("bookid", Query.Direction.ASCENDING);
+                    query = mDb.collection(BOOKS)
+                            .whereEqualTo("bookname", s.toString())
+                            .orderBy("bookid", Query.Direction.ASCENDING);
                 }
-//                FirestoreRecyclerOptions<Books> options = new FirestoreRecyclerOptions.Builder<Books>()
-//                        .setQuery(query, Books.class)
-//                        .build();
-//                mAdapter.updateOptions(options);
+                FirestoreRecyclerOptions<Books> options = new FirestoreRecyclerOptions.Builder<Books>()
+                        .setQuery(query, Books.class)
+                        .build();
+                mAdapter.updateOptions(options);
             }
         });
+
+
+
+
 
 
     }
