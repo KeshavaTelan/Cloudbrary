@@ -5,23 +5,138 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".home">
+
+
 <TextView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_centerInParent="true"
-    android:text="Home"
+    android:layout_centerHorizontal="true"
+    android:text="Hello "
     android:textAlignment="center"
-    android:id="@+id/logoutn"
-    android:textSize="50dp"
+    android:id="@+id/greeting"
+    android:textSize="30dp"
+    android:layout_marginTop="50dp"
+    android:fontFamily="@font/kanit_bold"
     />
-    <TextView
+
+    <RelativeLayout
+        android:id="@+id/cardviewParent"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
+        android:layout_height="350dp"
         android:layout_below="@+id/logoutn"
-        android:text="SEARCH"
-        android:textAlignment="center"
-        android:id="@+id/srch"
-        android:textSize="50dp"
-        />
+       android:layout_centerInParent="true"
+        android:layout_marginTop="80dp"
+
+        >
+
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardone"
+            android:layout_width="160dp"
+            android:layout_height="200dp"
+            app:cardCornerRadius="20dp"
+          android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            >
+         <RelativeLayout
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
+
+             <ImageView
+                 android:id="@+id/bookimg"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:src="@drawable/books"
+                android:layout_centerHorizontal="true"
+                 android:layout_marginTop="20dp"
+                 />
+             <TextView
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_below="@id/bookimg"
+                 android:layout_marginTop="15dp"
+                 android:layout_centerHorizontal="true"
+                 android:text="Get Books"
+                 android:fontFamily="@font/quicksand_bold"
+                 android:textSize="25dp"
+                 />
+
+         </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardtwo"
+            android:layout_width="160dp"
+            android:layout_height="200dp"
+            app:cardCornerRadius="20dp"
+
+            android:layout_marginRight="20dp"
+            android:layout_toRightOf="@id/cardone"
+            >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/mybooks"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/mybook"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="20dp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/mybooks"
+                    android:layout_marginTop="15dp"
+                    android:layout_centerHorizontal="true"
+                    android:text="My Books"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:textSize="25dp"
+                    />
+
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardthree"
+            android:layout_width="360dp"
+            android:layout_height="100dp"
+            app:cardCornerRadius="20dp"
+            android:layout_below="@id/cardone"
+           android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/logoutimg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/icons8_sign_out_100px"
+                    android:layout_centerVertical="true"
+                    android:layout_marginTop="20dp"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/logoutimg"
+                    android:layout_marginTop="15dp"
+                    android:layout_centerVertical="true"
+                    android:text="SignOut"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:textSize="25dp"
+                    />
+
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
+
+    </RelativeLayout>
+
+
+
+
 </RelativeLayout>

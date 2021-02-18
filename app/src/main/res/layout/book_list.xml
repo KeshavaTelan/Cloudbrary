@@ -83,6 +83,23 @@
                 app:layout_constraintStart_toEndOf="@id/item_last_name_label"
                 app:layout_constraintTop_toTopOf="@id/item_last_name_label"
                 />
+            <TextView
+                android:id="@+id/item_dis_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Discription"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/book_avalibility" />
+
+            <TextView
+                android:id="@+id/book_dis"
+                android:layout_width="100dp"
+                android:layout_height="80dp"
+                android:layout_marginStart="12dp"
+                app:layout_constraintStart_toEndOf="@+id/item_dis_label"
+                app:layout_constraintTop_toTopOf="@+id/item_dis_label"
+                />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button

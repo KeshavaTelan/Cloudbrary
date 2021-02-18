@@ -1,34 +1,34 @@
 package com.keshava.cloudbrary;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.TextView;
+        import android.view.LayoutInflater;
+        import android.view.View;
+        import android.view.ViewGroup;
+        import android.widget.Button;
+        import android.widget.ImageView;
+        import android.widget.TextView;
 
 
-import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
-import androidx.recyclerview.widget.RecyclerView;
+        import androidx.annotation.NonNull;
+        import androidx.cardview.widget.CardView;
+        import androidx.recyclerview.widget.RecyclerView;
 
 
-import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
-import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+        import com.firebase.ui.firestore.FirestoreRecyclerAdapter;
+        import com.firebase.ui.firestore.FirestoreRecyclerOptions;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.firestore.DocumentReference;
-import com.google.firebase.firestore.DocumentSnapshot;
-import com.google.firebase.firestore.FirebaseFirestore;
-import com.squareup.picasso.Picasso;
-
-
-import java.util.Map;
+        import com.google.android.gms.tasks.OnCompleteListener;
+        import com.google.android.gms.tasks.Task;
+        import com.google.firebase.auth.FirebaseAuth;
+        import com.google.firebase.firestore.DocumentReference;
+        import com.google.firebase.firestore.DocumentSnapshot;
+        import com.google.firebase.firestore.FirebaseFirestore;
+        import com.squareup.picasso.Picasso;
 
 
-public class BooksrecycleAdapter extends FirestoreRecyclerAdapter<Books,BooksrecycleAdapter.booksViewHolder> {
+        import java.util.Map;
+
+
+public class mybookadapter extends FirestoreRecyclerAdapter<Books,mybookadapter.booksViewHolder> {
 
     private FirebaseFirestore db = FirebaseFirestore.getInstance();
     private FirebaseAuth mAuth = FirebaseAuth.getInstance();
@@ -42,12 +42,12 @@ public class BooksrecycleAdapter extends FirestoreRecyclerAdapter<Books,Booksrec
 
     private final OnItemClickListener listener;
 
-    BooksrecycleAdapter(FirestoreRecyclerOptions<Books> options, OnItemClickListener listener) {
+    mybookadapter(FirestoreRecyclerOptions<Books> options, OnItemClickListener listener) {
         super(options);
         this.listener = listener;
     }
 
-    BooksrecycleAdapter(FirestoreRecyclerOptions<Books> options) {
+    mybookadapter(FirestoreRecyclerOptions<Books> options) {
         super(options);
         this.listener = null;
     }
@@ -58,7 +58,6 @@ public class BooksrecycleAdapter extends FirestoreRecyclerAdapter<Books,Booksrec
         final TextView bookprice;
         final TextView bookavalibilty;
         final ImageView bookimage;
-        TextView bookdis;
         final Button bookbuy;
 
 
@@ -70,8 +69,6 @@ public class BooksrecycleAdapter extends FirestoreRecyclerAdapter<Books,Booksrec
             bookavalibilty = v.findViewById(R.id.book_avalibility);
             bookimage=v.findViewById(R.id.book_img);
             bookbuy=v.findViewById(R.id.bookybuy);
-             bookdis = v.findViewById(R.id.book_dis);
-
 
 
         }
@@ -85,7 +82,6 @@ public class BooksrecycleAdapter extends FirestoreRecyclerAdapter<Books,Booksrec
         holder.bookname.setText(books.getBookname());
         holder.bookprice.setText(books.getBookprice());
         holder.bookavalibilty.setText(Integer.toString( books.getBookcount()));
-        holder.bookdis.setText(books.getBookdiscription());
 
         Picasso.get().load(books.getBookimg()).into(holder.bookimage);
 
@@ -103,12 +99,11 @@ public class BooksrecycleAdapter extends FirestoreRecyclerAdapter<Books,Booksrec
                             if (entry.getKey().equals("mybooks")) {
                                 Map<String, Object> newFriend0Map = (Map<String, Object>) entry.getValue();
                                 for (Map.Entry<String, Object> e : newFriend0Map.entrySet()) {
-                                    if (e.getKey().equals(books.getBookid())  ) {
-
+                                    if (e.getKey().equals(books.getBookid())) {
 
 
                                         holder.bookbuy.setEnabled(false);
-
+                                        holder.view.setVisibility(View.GONE);
 
                                     }
 //                                Map<String, Object> fNameMap = (Map<String, Object>) e.getValue();
@@ -142,32 +137,25 @@ public class BooksrecycleAdapter extends FirestoreRecyclerAdapter<Books,Booksrec
             @Override
             public void onClick(View v) {
 
-                if(books.getBookcount()==0){
-                    holder.bookbuy.setEnabled(false);
-                }else {
 
-                    String uid =  mAuth.getCurrentUser().getUid();
-                    int newcount = books.getBookcount()-1;
+                String uid =  mAuth.getCurrentUser().getUid();
+                int newcount = books.getBookcount()-1;
 //
 
-                    DocumentReference documentReference =db.collection("Books").document(books.getBookid());
-                    documentReference.update("bookcount", newcount);
+                DocumentReference documentReference =db.collection("Books").document(books.getBookid());
+                documentReference.update("]bookcount", newcount);
 
-                    DocumentReference addbooktouser =db.collection("users").document(uid);
+                DocumentReference addbooktouser =db.collection("users").document(uid);
 
 //
 
 
-                    addbooktouser.update("mybooks."+books.getBookid(),1);
+                addbooktouser.update("mybooks."+books.getBookid(),1);
 
 
-                    holder.bookbuy.setEnabled(false);
+                holder.bookbuy.setEnabled(false);
 //                meka adu vela eka db eke update venna one
 //                userge collection eke gatta potha add venna one list ekak vage
-
-
-                }
-
 
 
             }

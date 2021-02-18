@@ -1,6 +1,7 @@
 package com.keshava.cloudbrary;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.paging.PagedList;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -13,6 +14,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.firebase.ui.firestore.FirestoreRecyclerOptions;
+import com.firebase.ui.firestore.paging.FirestorePagingOptions;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 
@@ -39,6 +41,13 @@ public class searchAct extends AppCompatActivity {
 
         Query query = mDb.collection(BOOKS)
                 .orderBy("bookid", Query.Direction.ASCENDING);
+
+//        final PagedList.Config config = new PagedList.Config.Builder()
+//                .setInitialLoadSizeHint(1)
+//                .setPageSize(1)
+//                .build();
+
+
         FirestoreRecyclerOptions<Books> options = new FirestoreRecyclerOptions.Builder<Books>()
                 .setQuery(query, Books.class)
                 .build();

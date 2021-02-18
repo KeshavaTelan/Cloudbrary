@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card_view"
+    android:layout_margin="12dp"
+    app:cardElevation="4dp"
+    app:cardCornerRadius="4dp"
+   >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="12dp">
+
+        <ImageView
+            android:id="@+id/mybook_img"
+            android:layout_width="100dp"
+            android:layout_height="130dp"
+            android:scaleType="fitXY"
+            android:layout_centerHorizontal="true"
+
+            />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/mytestcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+           android:layout_below="@id/mybook_img"
+         android:layout_centerHorizontal="true"
+
+            >
+
+            <TextView
+                android:id="@+id/item_user_id_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="book name"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+         
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <Button
+        android:id="@+id/mybookybuy"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="Remove book"
+        android:layout_marginTop="10dp"
+        android:background="#FFC2C2"
+        android:layout_below="@id/mytestcon"
+        android:layout_centerHorizontal="true"
+        />
+
+
+
+
+
+
+    </RelativeLayout>
+
+
+
+</androidx.cardview.widget.CardView>

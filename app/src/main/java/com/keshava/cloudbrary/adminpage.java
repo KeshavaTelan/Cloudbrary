@@ -129,9 +129,9 @@ adminpage extends AppCompatActivity {
                                     event.put("bookdiscription", bookdis2);
                                     event.put("status", 1);
 
-                                    Map<String, Integer> tt = new HashMap<>();
-                                    tt.put("test",11);
-                                    event.put("mybooks",tt);
+//                                    Map<String, Integer> tt = new HashMap<>();
+//                                    tt.put("test",11);
+//                                    event.put("mybooks",tt);
 
                                     newCityRef.set(event).addOnSuccessListener(new OnSuccessListener<Void>() {
                                         @Override
