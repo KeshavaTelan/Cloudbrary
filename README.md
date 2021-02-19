@@ -15,7 +15,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/github_username/repo_name">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="readmd/logo.png"  width="40" height="40">
   </a>
 
   <h3 align="center">Cloudbry</h3>
@@ -35,7 +35,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+(https://example.com)
 
 This is a project that i created for my Job Interview ,it's a little library system .I use android studio for coding this .i code this application in <b>JAVA</b> and i use <b>Firebase Firestore</b> for database and authendtication .for retrieve images from firbase storage i use <b> Picasso </b>dependency.these are the process that you can do with application.
 <ul>
