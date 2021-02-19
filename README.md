@@ -14,7 +14,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/github_username/repo_name">
+  <a href="https://github.com/KeshavaTelan/Cloudbrary.git">
     <img src="readmd/logo.png"  width="40" height="40">
   </a>
 
